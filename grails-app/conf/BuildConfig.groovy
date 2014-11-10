@@ -49,7 +49,6 @@ grails.project.dependency.resolution = {
         build ":tomcat:7.0.55"
 
         compile ":geb:0.10.0"
-        test("org.grails.plugins:geb:0.10.0")
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.5.5" // or ":hibernate:3.6.10.17"
     }
