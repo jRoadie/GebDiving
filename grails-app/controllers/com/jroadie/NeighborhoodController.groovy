@@ -8,7 +8,7 @@ class NeighborhoodController {
         Browser.drive {
             go "https://www.airbnb.com/s/dhaka"
 
-            print($("h1").text())
+            print($("p").text())
         }
         render(view: "/index", model: [:])
     }
