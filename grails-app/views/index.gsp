@@ -17,9 +17,9 @@
     <div class="row">
         <div class="col-xs-6 col-md-4"></div>
         <div class="col-xs-6 col-md-4">
-            <form method="get" action="neighborhood/find" class="form-inline">
+            <form method="get" action="/GebDiving/neighborhood/find" class="form-inline">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="location" placeholder="Location"/>
+                    <input type="text" class="form-control" name="location" placeholder="Location" value="${params.location}"/>
                 </div>
                 <button type="submit" class="form-control btn-primary">Check</button>
             </form>

@@ -1,5 +1,6 @@
 package com.jroadie
 
+import com.jroadie.gebdiving.NeighborhoodController
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 
