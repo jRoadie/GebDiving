@@ -40,9 +40,19 @@ class NeighborhoodService {
         Browser.drive {
             go(detailsPage)
             Navigator container = $("#room")
+            neighborhood.title = container.find(".page-container #listing_name").text()
+            neighborhood.address = container.find(".page-container #display-address").text()
+            /* remove currency sign from price amount */
+            neighborhood.price = container.find("#pricing #price_amount").text().substring(1).toDouble()
+            neighborhood.paymentPeriod = container.find("#payment-period-container").text()
             container.find("#photo-modal li.media-photo img").each {
                 neighborhood.images.add($(it).attr("src"))
             }
+            /* if there is no image in modal slider (single image only) */
+            if(neighborhood.images.size() == 0) {
+                neighborhood.images.add(container.find("#photos img").attr("src"))
+            }
+            def features = container.find(".page-container .panel-body .row").getAt(1).find(".col-3").text()
         }
         return neighborhood
     }

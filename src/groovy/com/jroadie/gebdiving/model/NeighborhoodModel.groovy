@@ -7,7 +7,8 @@ class NeighborhoodModel {
     String description
 
     Double price
+    String paymentPeriod
 
-    List<String> images
-    List<String> features
+    List<String> images = []
+    List<String> features = []
 }
