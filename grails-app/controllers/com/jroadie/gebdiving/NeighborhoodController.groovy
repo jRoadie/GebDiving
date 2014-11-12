@@ -14,6 +14,6 @@ class NeighborhoodController {
         }
 
         //$('.pagination').find('a[rel=next]')
-        render(view: "/index", model: [:])
+        render(view: "/index", model: [neighborhoods: neighborhoods])
     }
 }

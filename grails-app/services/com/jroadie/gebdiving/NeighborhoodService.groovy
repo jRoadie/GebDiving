@@ -43,9 +43,9 @@ class NeighborhoodService {
             neighborhood.title = container.find(".page-container #listing_name").text()
             neighborhood.address = container.find(".page-container #display-address").text()
             /* remove currency sign from price amount */
-            neighborhood.price = container.find("#pricing #price_amount").text().substring(1).toDouble()
+            neighborhood.price = container.find("#pricing #price_amount").text()?.substring(1)?.toDouble()
             neighborhood.paymentPeriod = container.find("#payment-period-container").text()
-            container.find("#photo-modal li.media-photo img").each {
+            container.find("#photo-modal .slideshow-preload img").each {
                 neighborhood.images.add($(it).attr("src"))
             }
             /* if there is no image in modal slider (single image only) */
