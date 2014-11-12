@@ -9,11 +9,6 @@ class NeighborhoodController {
 
     def find() {
         List<NeighborhoodModel> neighborhoods = neighborhoodService.listOfNeighborhoods("/s/" + params.location)
-        neighborhoods.each {
-            println(it.properties)
-        }
-
-        //$('.pagination').find('a[rel=next]')
         render(view: "/index", model: [neighborhoods: neighborhoods])
     }
 }

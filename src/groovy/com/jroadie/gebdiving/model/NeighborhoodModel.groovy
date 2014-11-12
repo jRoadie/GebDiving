@@ -2,11 +2,12 @@ package com.jroadie.gebdiving.model
 
 class NeighborhoodModel {
     String title
-    String relativeUrl
+    String url
     String address
     String description
 
     Double price
+    String currencySymbol
     String paymentPeriod
 
     List<String> images = []

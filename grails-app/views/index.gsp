@@ -61,8 +61,10 @@
                                     </g:if>
                                 </div>
                                 <div class="page-header">
-                                    <h3>${neighborhood.title}</h3>
+                                    <h3><a href="${neighborhood.url}" target="_blank">${neighborhood.title}</a></h3>
                                     <h4><small>${neighborhood.address}</small></h4>
+                                    <span class="label label-primary" style="font-size: 18px;">${neighborhood.currencySymbol}${neighborhood.price} <small>${neighborhood.paymentPeriod}</small></span>
+                                    <p>${neighborhood.description}</p>
                                 </div>
                             </div>
                         </div>

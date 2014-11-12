@@ -29,7 +29,7 @@ class NeighborhoodService {
             /* recursively list all neighborhoods if the next search page exists */
             String nextPage = $(".pagination li.next_page a").attr("href")
             if(nextPage) {
-                return neighborhoods.addAll(listOfNeighborhoods(nextPage))
+                neighborhoods.addAll(listOfNeighborhoods(nextPage))
             }
         }
         return neighborhoods
@@ -41,9 +41,12 @@ class NeighborhoodService {
             go(detailsPage)
             Navigator container = $("#room")
             neighborhood.title = container.find(".page-container #listing_name").text()
+            neighborhood.url = detailsPage
             neighborhood.address = container.find(".page-container #display-address").text()
-            /* remove currency sign from price amount */
+            neighborhood.description = container.find(".page-container .panel-body p").getAt(0).text()
+            /* remove currencySymbol sign from price amount */
             neighborhood.price = container.find("#pricing #price_amount").text()?.substring(1)?.toDouble()
+            neighborhood.currencySymbol = container.find("#pricing #price_amount").text()?.substring(0, 1)
             neighborhood.paymentPeriod = container.find("#payment-period-container").text()
             container.find("#photo-modal .slideshow-preload img").each {
                 neighborhood.images.add($(it).attr("src"))
