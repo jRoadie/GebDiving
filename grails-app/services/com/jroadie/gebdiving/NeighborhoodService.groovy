@@ -52,7 +52,6 @@ class NeighborhoodService {
             if(neighborhood.images.size() == 0) {
                 neighborhood.images.add(container.find("#photos img").attr("src"))
             }
-            def features = container.find(".page-container .panel-body .row").getAt(1).find(".col-3").text()
         }
         return neighborhood
     }

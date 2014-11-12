@@ -28,34 +28,44 @@
             </div>
             <div class="neighborhood-list">
                 <g:each in="${neighborhoods}" var="neighborhood" status="n">
-                    <div id="carousel-${n}" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators -->
-                        <g:if test="${neighborhood.images.size() > 1}">
-                            <ol class="carousel-indicators">
-                                <g:each in="${neighborhood.images}" var="image" status="idx">
-                                    <li data-target="#carousel-${n}" data-slide-to="${idx}" class="${idx == 0 ? 'active' : ''}"></li>
-                                </g:each>
-                            </ol>
-                        </g:if>
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner" role="listbox">
-                            <g:each in="${neighborhood.images}" var="image" status="i">
-                                <div class="item ${i == 0 ? 'active' : ''}">
-                                    <img src="${image}" alt="">
+                    <div class="row">
+                        <div class="col-xs-18 col-md-12">
+                            <div style="margin: 0 auto;">
+                                <div id="carousel-${n}" class="carousel slide" data-ride="carousel">
+                                    <!-- Indicators -->
+                                    <g:if test="${neighborhood.images.size() > 1}">
+                                        <ol class="carousel-indicators">
+                                            <g:each in="${neighborhood.images}" var="image" status="idx">
+                                                <li data-target="#carousel-${n}" data-slide-to="${idx}" class="${idx == 0 ? 'active' : ''}"></li>
+                                            </g:each>
+                                        </ol>
+                                    </g:if>
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner" role="listbox">
+                                        <g:each in="${neighborhood.images}" var="image" status="i">
+                                            <div class="item ${i == 0 ? 'active' : ''}">
+                                                <img src="${image}" alt="">
+                                            </div>
+                                        </g:each>
+                                    </div>
+                                    <!-- Controls -->
+                                    <g:if test="${neighborhood.images.size() > 1}">
+                                        <a class="left carousel-control" href="#carousel-${n}" role="button" data-slide="prev">
+                                            <span class="glyphicon glyphicon-chevron-left"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="right carousel-control" href="#carousel-${n}" role="button" data-slide="next">
+                                            <span class="glyphicon glyphicon-chevron-right"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </g:if>
                                 </div>
-                            </g:each>
+                                <div class="page-header">
+                                    <h3>${neighborhood.title}</h3>
+                                    <h4><small>${neighborhood.address}</small></h4>
+                                </div>
+                            </div>
                         </div>
-                        <!-- Controls -->
-                        <g:if test="${neighborhood.images.size() > 1}">
-                            <a class="left carousel-control" href="#carousel-${n}" role="button" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-${n}" role="button" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </g:if>
                     </div>
                 </g:each>
             </div>

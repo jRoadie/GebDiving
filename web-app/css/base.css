@@ -1,9 +1,4 @@
 .carousel {
-    max-height: 250px;
+    max-height: 450px;
     overflow: hidden;
-}
-.carousel .item {
-    height: 250px;
-    position: absolute;
-    top: -100%;
 }

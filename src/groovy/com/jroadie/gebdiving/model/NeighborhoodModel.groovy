@@ -10,5 +10,4 @@ class NeighborhoodModel {
     String paymentPeriod
 
     List<String> images = []
-    List<String> features = []
 }
