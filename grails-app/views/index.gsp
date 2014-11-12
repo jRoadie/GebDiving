@@ -16,14 +16,16 @@
 <body>
 <div class="container" style="margin-top: 100px">
     <div class="row">
-        <div class="col-xs-6 col-md-4"></div>
-        <div class="col-xs-6 col-md-4">
-            <form method="get" action="/GebDiving/neighborhood/find" class="form-inline">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="location" placeholder="Location" value="${params.location}"/>
-                </div>
-                <button type="submit" class="form-control btn-primary">Check</button>
-            </form>
+        <div class="col-xs-3 col-md-2"></div>
+        <div class="col-xs-12 col-md-8">
+            <div style="width: 270px; margin: 0 auto 30px;">
+                <form method="get" action="/GebDiving/neighborhood/find" class="form-inline">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="location" placeholder="Location" value="${params.location}"/>
+                    </div>
+                    <button type="submit" class="form-control btn-primary">Check</button>
+                </form>
+            </div>
             <div class="neighborhood-list">
                 <g:each in="${neighborhoods}" var="neighborhood" status="n">
                     <div id="carousel-${n}" class="carousel slide" data-ride="carousel">
@@ -58,7 +60,7 @@
                 </g:each>
             </div>
         </div>
-        <div class="col-xs-6 col-md-4"></div>
+        <div class="col-xs-3 col-md-2"></div>
     </div>
 </div>
 </body>

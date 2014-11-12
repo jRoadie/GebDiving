@@ -1,0 +1,9 @@
+.carousel {
+    max-height: 250px;
+    overflow: hidden;
+}
+.carousel .item {
+    height: 250px;
+    position: absolute;
+    top: -100%;
+}
