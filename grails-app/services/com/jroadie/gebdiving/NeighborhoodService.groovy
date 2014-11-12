@@ -11,6 +11,7 @@ class NeighborhoodService {
     public List<NeighborhoodModel> listOfNeighborhoods(String searchPage) {
         List<NeighborhoodModel> neighborhoods = []
         Browser.drive {
+            println("Going to " + searchPage)
             go(searchPage)
             /* reset the next page to parse */
             searchPage = $(".pagination li.next_page a").attr("href")
@@ -26,18 +27,17 @@ class NeighborhoodService {
             }
 
             /* recursively list all neighborhoods if the next search page exists */
-            println(searchPage)
             if(searchPage) {
                 neighborhoods.addAll(listOfNeighborhoods(searchPage))
             }
         }
-        println(neighborhoods.size())
         return neighborhoods
     }
 
     public NeighborhoodModel parseNeighborhoodInfo(String detailsPage) {
         NeighborhoodModel neighborhood = new NeighborhoodModel()
         Browser.drive {
+            println("\tParsing from " + detailsPage)
             go(detailsPage)
             Navigator container = $("#room")
             neighborhood.title = container.find(".page-container #listing_name").text()
