@@ -8,13 +8,12 @@ import grails.transaction.Transactional
 @Transactional
 class NeighborhoodService {
 
-    private static airbnb_url = "https://www.airbnb.com";
-
     public List<NeighborhoodModel> listOfNeighborhoods(String searchPage) {
         List<NeighborhoodModel> neighborhoods = []
         Browser.drive {
-            go(airbnb_url + searchPage)
-
+            go(searchPage)
+            /* reset the next page to parse */
+            searchPage = $(".pagination li.next_page a").attr("href")
             /* list the details page link of neighborhood of this search page */
             List<String> detailPages = []
             $('a.media-cover').each {
@@ -27,11 +26,12 @@ class NeighborhoodService {
             }
 
             /* recursively list all neighborhoods if the next search page exists */
-            String nextPage = $(".pagination li.next_page a").attr("href")
-            if(nextPage) {
-                neighborhoods.addAll(listOfNeighborhoods(nextPage))
+            println(searchPage)
+            if(searchPage) {
+                neighborhoods.addAll(listOfNeighborhoods(searchPage))
             }
         }
+        println(neighborhoods.size())
         return neighborhoods
     }
 
